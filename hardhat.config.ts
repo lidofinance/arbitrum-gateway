@@ -6,13 +6,24 @@ import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import "hardhat-deploy"
 
 import "./tasks/fork-node";
 import env from "./utils/env";
 
 dotenv.config();
 
+const ethDeployerPk: string | undefined = process.env.ETH_DEPLOYER_PRIVATE_KEY;
+if (!ethDeployerPk) {
+    throw new Error('Please set your ETH_DEPLOYER_PRIVATE_KEY in a .env file');
+}
+
 const config: HardhatUserConfig = {
+  namedAccounts: {
+    deployer: {
+      default: 0, // here this will by default take the first account as deployer
+    },
+  },
   solidity: {
     compilers: [
       {
@@ -39,9 +50,13 @@ const config: HardhatUserConfig = {
     // Ethereum Public Chains
     eth_mainnet: {
       url: env.string("RPC_ETH_MAINNET", ""),
+      deploy: ['./scripts/manta/deploy'],
+      accounts: [`0x${ethDeployerPk}`],
     },
     eth_sepolia: {
       url: env.string("RPC_ETH_SEPOLIA", ""),
+      deploy: ['./scripts/manta/deploy'],
+      accounts: [`0x${ethDeployerPk}`],
     },
 
     // Ethereum Fork Chains
@@ -72,6 +87,7 @@ const config: HardhatUserConfig = {
     opt_mainnet: {
       url: env.string("RPC_OPT_MAINNET", ""),
     },
+    // @NOTE: currently used for manta L2 
     opt_sepolia: {
       url: env.string("RPC_OPT_SEPOLIA", ""),
     },
@@ -92,6 +108,8 @@ const config: HardhatUserConfig = {
     apiKey: {
       mainnet: env.string("ETHERSCAN_API_KEY_ETH", ""),
       sepolia: env.string("ETHERSCAN_API_KEY_ETH", ""),
+      eth_sepolia: env.string("ETHERSCAN_API_KEY_ETH", ""),
+      eth_mainnet: env.string("ETHERSCAN_API_KEY_ETH", ""),
       arbitrumOne: env.string("ETHERSCAN_API_KEY_ARB", ""),
       optimisticEthereum: env.string("ETHERSCAN_API_KEY_OPT", ""),
       "opt_sepolia": env.string("ETHERSCAN_API_KEY_OPT", ""),
@@ -108,10 +126,10 @@ const config: HardhatUserConfig = {
         },
         {
             network: 'opt_sepolia',
-            chainId: 11155420,
+            chainId: 3441006,
             urls: {
-              apiURL: 'https://api-sepolia-optimism.etherscan.io/api',
-              browserURL: 'https://sepolia-optimism.etherscan.io',
+              apiURL: 'https://manta-sepolia.rpc.caldera.xyz/http',
+              browserURL: 'https://manta-sepolia.explorer.caldera.xyz',
             },
           },
       ],

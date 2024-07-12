@@ -1,0 +1,281 @@
+Deploy Optimism Bridge :: 0xB82381A3fBD3FaFA77B3a7bE693342618240067b
+
+  · L1 Deployment Params:
+    · Chain ID: 11155111
+    · Deployer: 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+    · Proxy Admin: 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+    · Bridge Admin: 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+    · Deposits Enabled: true
+    · Withdrawals Enabled: true
+    · Deposits Enablers: ["0x32A0E5828B62AAb932362a4816ae03b860b65e83"]
+    · Deposits Disablers: ["0x32A0E5828B62AAb932362a4816ae03b860b65e83","0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09"]
+    · Withdrawals Enablers: ["0x32A0E5828B62AAb932362a4816ae03b860b65e83"]
+    · Withdrawals Disablers: ["0x32A0E5828B62AAb932362a4816ae03b860b65e83","0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09"]
+
+  · L1 Deployment Actions:
+      1/2: Deploy L1ERC20TokenBridge
+        0: messenger_  0xFe7cF31c4579bb1C578716e04E1Ae16Ac5549fF0
+        1: l2TokenBridge_  0x1a8722848c0EF04b7534A20EDeDC579542f7c99A
+        2: l1Token_  0xB82381A3fBD3FaFA77B3a7bE693342618240067b
+        3: l2Token_  0x9b72b0D75e2eb87579694E842741738d3a9C311E
+
+      2/2: Deploy OssifiableProxy
+        0: implementation_  0x82ce64B6Daa2FB7474F845FDdE67DC413cbcf6b6
+        1: admin_  0x32A0E5828B62AAb932362a4816ae03b860b65e83
+        2: data_  0xc4d66de8000000000000000000000000af5b6ae540fcf3bd76f1b4c83fc87143932aad09
+
+  · L2 Deployment Params:
+    · Chain ID: 3441006
+    · Deployer: 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+    · Proxy Admin: 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+    · Bridge Admin: 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+    · Deposits Enabled: true
+    · Withdrawals Enabled: true
+    · Deposits Enablers: ["0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb"]
+    · Deposits Disablers: ["0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb","0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09"]
+    · Withdrawals Enablers: ["0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb"]
+    · Withdrawals Disablers: ["0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb","0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09"]
+
+  · L2 Deployment Actions:
+      1/4: Deploy ERC20Bridged
+        0: name_  "Wrapped liquid staked Ether 2.0"
+        1: symbol_  "wstETH"
+        2: decimals_  18
+        3: bridge_  0x1a8722848c0EF04b7534A20EDeDC579542f7c99A
+
+      2/4: Deploy OssifiableProxy
+        0: implementation_  0xA1A49E457Fe100Be6D98C4C7C845Ed31583e9EE4
+        1: admin_  0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+        2: data_  0x4cd88b7600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000001f57726170706564206c6971756964207374616b656420457468657220322e300000000000000000000000000000000000000000000000000000000000000000067773744554480000000000000000000000000000000000000000000000000000
+
+      3/4: Deploy L2ERC20TokenBridge
+        0: messenger_  0x4200000000000000000000000000000000000007
+        1: l1TokenBridge_  0xCB4619437C5Bb35d26346DeA9FeB9bD73c4f2633
+        2: l1Token_  0xB82381A3fBD3FaFA77B3a7bE693342618240067b
+        3: l2Token_  0x9b72b0D75e2eb87579694E842741738d3a9C311E
+
+      4/4: Deploy OssifiableProxy
+        0: implementation_  0x23E1087Cd4B4bFbc6Ce318DdA2261Fd7d9749e0D
+        1: admin_  0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+        2: data_  0xc4d66de8000000000000000000000000af5b6ae540fcf3bd76f1b4c83fc87143932aad09
+
+Do you want to proceed? [yes/no]
+yes
+1/2: Deploying L1ERC20TokenBridge
+  0: messenger_  0xFe7cF31c4579bb1C578716e04E1Ae16Ac5549fF0
+  1: l2TokenBridge_  0x1a8722848c0EF04b7534A20EDeDC579542f7c99A
+  2: l1Token_  0xB82381A3fBD3FaFA77B3a7bE693342618240067b
+  3: l2Token_  0x9b72b0D75e2eb87579694E842741738d3a9C311E
+Waiting for tx: https://sepolia.etherscan.io/tx/0xc5d50a45a3c3831cf2fe412df996c4a7338234a831c837396cc23c62a08f398c
+Contract L1ERC20TokenBridge deployed at: https://sepolia.etherscan.io/address/0x82ce64B6Daa2FB7474F845FDdE67DC413cbcf6b6
+To verify the contract on Etherscan, use command:
+npx hardhat verify --network eth_sepolia 0x82ce64B6Daa2FB7474F845FDdE67DC413cbcf6b6 "0xFe7cF31c4579bb1C578716e04E1Ae16Ac5549fF0" "0x1a8722848c0EF04b7534A20EDeDC579542f7c99A" "0xB82381A3fBD3FaFA77B3a7bE693342618240067b" "0x9b72b0D75e2eb87579694E842741738d3a9C311E"
+
+2/2: Deploying OssifiableProxy
+  0: implementation_  0x82ce64B6Daa2FB7474F845FDdE67DC413cbcf6b6
+  1: admin_  0x32A0E5828B62AAb932362a4816ae03b860b65e83
+  2: data_  0xc4d66de8000000000000000000000000af5b6ae540fcf3bd76f1b4c83fc87143932aad09
+Waiting for tx: https://sepolia.etherscan.io/tx/0x1ed0762ee0377ea90241c016b852432095c74bc9ee007bddb2ff7c92a64b82ef
+Contract OssifiableProxy deployed at: https://sepolia.etherscan.io/address/0xCB4619437C5Bb35d26346DeA9FeB9bD73c4f2633
+To verify the contract on Etherscan, use command:
+npx hardhat verify --network eth_sepolia 0xCB4619437C5Bb35d26346DeA9FeB9bD73c4f2633 "0x82ce64B6Daa2FB7474F845FDdE67DC413cbcf6b6" "0x32A0E5828B62AAb932362a4816ae03b860b65e83" "0xc4d66de8000000000000000000000000af5b6ae540fcf3bd76f1b4c83fc87143932aad09"
+
+1/4: Deploying ERC20Bridged
+  0: name_  "Wrapped liquid staked Ether 2.0"
+  1: symbol_  "wstETH"
+  2: decimals_  18
+  3: bridge_  0x1a8722848c0EF04b7534A20EDeDC579542f7c99A
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xc8b0c4e3b0d3d3f965a658661363eb164c78ad962b6b106f42faeeb62dea579b
+Contract ERC20Bridged deployed at: https://manta-sepolia.explorer.caldera.xyz/address/0xA1A49E457Fe100Be6D98C4C7C845Ed31583e9EE4
+To verify the contract on Etherscan, use command:
+npx hardhat verify --network <NETWORK_NAME> 0xA1A49E457Fe100Be6D98C4C7C845Ed31583e9EE4 "Wrapped liquid staked Ether 2.0" "wstETH" "18" "0x1a8722848c0EF04b7534A20EDeDC579542f7c99A"
+
+2/4: Deploying OssifiableProxy
+  0: implementation_  0xA1A49E457Fe100Be6D98C4C7C845Ed31583e9EE4
+  1: admin_  0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+  2: data_  0x4cd88b7600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000001f57726170706564206c6971756964207374616b656420457468657220322e300000000000000000000000000000000000000000000000000000000000000000067773744554480000000000000000000000000000000000000000000000000000
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x836f1b63a15e48226f672f2ccef873becc14f3dea6460093a06f41719ece5938
+Contract OssifiableProxy deployed at: https://manta-sepolia.explorer.caldera.xyz/address/0x9b72b0D75e2eb87579694E842741738d3a9C311E
+To verify the contract on Etherscan, use command:
+npx hardhat verify --network <NETWORK_NAME> 0x9b72b0D75e2eb87579694E842741738d3a9C311E "0xA1A49E457Fe100Be6D98C4C7C845Ed31583e9EE4" "0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb" "0x4cd88b7600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000001f57726170706564206c6971756964207374616b656420457468657220322e300000000000000000000000000000000000000000000000000000000000000000067773744554480000000000000000000000000000000000000000000000000000"
+
+3/4: Deploying L2ERC20TokenBridge
+  0: messenger_  0x4200000000000000000000000000000000000007
+  1: l1TokenBridge_  0xCB4619437C5Bb35d26346DeA9FeB9bD73c4f2633
+  2: l1Token_  0xB82381A3fBD3FaFA77B3a7bE693342618240067b
+  3: l2Token_  0x9b72b0D75e2eb87579694E842741738d3a9C311E
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xbd160ce99157e41796d6df60309b3cb81f8789456b27aec0788764a294ea17ee
+Contract L2ERC20TokenBridge deployed at: https://manta-sepolia.explorer.caldera.xyz/address/0x23E1087Cd4B4bFbc6Ce318DdA2261Fd7d9749e0D
+To verify the contract on Etherscan, use command:
+npx hardhat verify --network <NETWORK_NAME> 0x23E1087Cd4B4bFbc6Ce318DdA2261Fd7d9749e0D "0x4200000000000000000000000000000000000007" "0xCB4619437C5Bb35d26346DeA9FeB9bD73c4f2633" "0xB82381A3fBD3FaFA77B3a7bE693342618240067b" "0x9b72b0D75e2eb87579694E842741738d3a9C311E"
+
+4/4: Deploying OssifiableProxy
+  0: implementation_  0x23E1087Cd4B4bFbc6Ce318DdA2261Fd7d9749e0D
+  1: admin_  0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+  2: data_  0xc4d66de8000000000000000000000000af5b6ae540fcf3bd76f1b4c83fc87143932aad09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xf4557c6bd02a6b7d1db17acb7e54fab22c274f981bc91cd2ac7b18637077f619
+Contract OssifiableProxy deployed at: https://manta-sepolia.explorer.caldera.xyz/address/0x1a8722848c0EF04b7534A20EDeDC579542f7c99A
+To verify the contract on Etherscan, use command:
+npx hardhat verify --network <NETWORK_NAME> 0x1a8722848c0EF04b7534A20EDeDC579542f7c99A "0x23E1087Cd4B4bFbc6Ce318DdA2261Fd7d9749e0D" "0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb" "0xc4d66de8000000000000000000000000af5b6ae540fcf3bd76f1b4c83fc87143932aad09"
+
+Setup Bridging Manager :: 0xCB4619437C5Bb35d26346DeA9FeB9bD73c4f2633
+Grant role DEPOSITS_ENABLER_ROLE:
+  · role 0x4b43b36766bde12c5e9cbbc37d15f8d1f769f08f54720ab370faeb4ce893753a
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0x0d9769a0ef25deea0e7579fe5aa06e1abd22eac85faf9163a290dd76bc65f34f
+[DONE]
+
+Grant role DEPOSITS_ENABLER_ROLE:
+  · role 0x4b43b36766bde12c5e9cbbc37d15f8d1f769f08f54720ab370faeb4ce893753a
+  · account 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+Waiting for tx: https://sepolia.etherscan.io/tx/0x32744d0674be382508af966fcd6f15f67d1ec4cefd1e78b8e8dc63a95c850011
+[DONE]
+
+Grant role DEPOSITS_DISABLER_ROLE:
+  · role 0x63f736f21cb2943826cd50b191eb054ebbea670e4e962d0527611f830cd399d6
+  · account 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+Waiting for tx: https://sepolia.etherscan.io/tx/0x5db8cd2f33e6e79bd142b67d28c2b8ffc30a474716a6aac415b97017ecc866c8
+[DONE]
+
+Grant role DEPOSITS_DISABLER_ROLE:
+  · role 0x63f736f21cb2943826cd50b191eb054ebbea670e4e962d0527611f830cd399d6
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0x4c0001141bbfd34400d288e66cc043b9d5ca77f2732bb35ce49d1b50177132a5
+[DONE]
+
+Grant role WITHDRAWALS_ENABLER_ROLE:
+  · role 0x9ab8816a3dc0b3849ec1ac00483f6ec815b07eee2fd766a353311c823ad59d0d
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0xbac3e81ef2226ae60b75a40d8face5e8ec82be83d0f1656b78e768e78765b593
+[DONE]
+
+Grant role WITHDRAWALS_ENABLER_ROLE:
+  · role 0x9ab8816a3dc0b3849ec1ac00483f6ec815b07eee2fd766a353311c823ad59d0d
+  · account 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+Waiting for tx: https://sepolia.etherscan.io/tx/0xa22dbff10684d6a41dfc0c5bb57ca0f1e5880bbfc747231245d4a6d2f0ad8e13
+[DONE]
+
+Grant role WITHDRAWALS_DISABLER_ROLE:
+  · role 0x94a954c0bc99227eddbc0715a62a7e1056ed8784cd719c2303b685683908857c
+  · account 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+Waiting for tx: https://sepolia.etherscan.io/tx/0x6389e716797a14eeba8dcc4626b24aea133173951c613dfcce071ae3db0016a1
+[DONE]
+
+Grant role WITHDRAWALS_DISABLER_ROLE:
+  · role 0x94a954c0bc99227eddbc0715a62a7e1056ed8784cd719c2303b685683908857c
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0xea02a96705bbf9c6b12efdb324cd49b807089faa966109d2d80bfd9d101e567f
+[DONE]
+
+Enable deposits
+Waiting for tx: https://sepolia.etherscan.io/tx/0x6d52df75af07503510e621262382a976db6f9adf6976fd6013535cbb5f05aeb9
+[DONE]
+
+Renounce role DEPOSITS_ENABLER_ROLE:
+  · role 0x4b43b36766bde12c5e9cbbc37d15f8d1f769f08f54720ab370faeb4ce893753a
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0x48eb5942454e013ac434f5158f9c806fa133053723b5264d4ccf137e435814cd
+[DONE]
+
+Enable withdrawals
+Waiting for tx: https://sepolia.etherscan.io/tx/0xcda0a6244ab8ba40c926193f574c8474b27805dc3d72dbe914e3d94e1bfe7eab
+[DONE]
+
+Renounce role WITHDRAWALS_ENABLER_ROLE:
+  · role 0x9ab8816a3dc0b3849ec1ac00483f6ec815b07eee2fd766a353311c823ad59d0d
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0x14c0d00676819a5115fe4075934a60eca5f8f956207ecacbfcca4c31c19cb18c
+[DONE]
+
+Grant role DEFAULT_ADMIN_ROLE:
+  · role 0x0000000000000000000000000000000000000000000000000000000000000000
+  · account 0x32A0E5828B62AAb932362a4816ae03b860b65e83
+Waiting for tx: https://sepolia.etherscan.io/tx/0xd14b4b152d11e936ecaf42d75e83b64da162e949c9ebde1b9845437262ed000c
+[DONE]
+
+Renounce role DEFAULT_ADMIN_ROLE:
+  · role 0x0000000000000000000000000000000000000000000000000000000000000000
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://sepolia.etherscan.io/tx/0xea0b5adcb4d46ed9b24911560b3301312dd5ba0bbf8c2ad753fd974d3b78bd26
+[DONE]
+
+Setup Bridging Manager :: 0x1a8722848c0EF04b7534A20EDeDC579542f7c99A
+Grant role DEPOSITS_ENABLER_ROLE:
+  · role 0x4b43b36766bde12c5e9cbbc37d15f8d1f769f08f54720ab370faeb4ce893753a
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x3ab3095557a044c4d6bf65746feeed56029854303674ff60b263005faa6e4c07
+[DONE]
+
+Grant role DEPOSITS_ENABLER_ROLE:
+  · role 0x4b43b36766bde12c5e9cbbc37d15f8d1f769f08f54720ab370faeb4ce893753a
+  · account 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xc5896d18487a0e8e58be374a11ad09795242012772c9a44eb36eb2fcb53748c9
+[DONE]
+
+Grant role DEPOSITS_DISABLER_ROLE:
+  · role 0x63f736f21cb2943826cd50b191eb054ebbea670e4e962d0527611f830cd399d6
+  · account 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xa1798276e601c6a4d4eb13435794bd71affc84ec32bbd54c010d3e16fbaaadb2
+[DONE]
+
+Grant role DEPOSITS_DISABLER_ROLE:
+  · role 0x63f736f21cb2943826cd50b191eb054ebbea670e4e962d0527611f830cd399d6
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x28f02a7b9693205068fe7dfe2cccd6012478a0f4b78a9c4d1e97a2b498210229
+[DONE]
+
+Grant role WITHDRAWALS_ENABLER_ROLE:
+  · role 0x9ab8816a3dc0b3849ec1ac00483f6ec815b07eee2fd766a353311c823ad59d0d
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x4eafb33a6ca207eb46378342e825f449bc79fa3f84107fb19b0cec7b6b63f55c
+[DONE]
+
+Grant role WITHDRAWALS_ENABLER_ROLE:
+  · role 0x9ab8816a3dc0b3849ec1ac00483f6ec815b07eee2fd766a353311c823ad59d0d
+  · account 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x331fee3eba4ae0ec75c2a226953ff4d6cdb43648a84500636c9c7fe047f84d09
+[DONE]
+
+Grant role WITHDRAWALS_DISABLER_ROLE:
+  · role 0x94a954c0bc99227eddbc0715a62a7e1056ed8784cd719c2303b685683908857c
+  · account 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xc348d6fbf9b96a90bd59795b5d39554782c1ff783216d588949ca058a23ea98b
+[DONE]
+
+Grant role WITHDRAWALS_DISABLER_ROLE:
+  · role 0x94a954c0bc99227eddbc0715a62a7e1056ed8784cd719c2303b685683908857c
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xa9399cb85ff8ec6697ab4e4bdd8aaa756cbc695d459f473bb606312a3cb6fc89
+[DONE]
+
+Enable deposits
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x4d49171c508fe9bef2d363b9d94370a6a30d205d6c8ce6ce957c2d5591a26a28
+[DONE]
+
+Renounce role DEPOSITS_ENABLER_ROLE:
+  · role 0x4b43b36766bde12c5e9cbbc37d15f8d1f769f08f54720ab370faeb4ce893753a
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xc5f84550a1a87306a8ee4b5535ae0b1b3de5cd127213086e77b7ea06d0b9783d
+[DONE]
+
+Enable withdrawals
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x7f0b817b6aec13a70fc476e36db82da8ccecab8c12089dde0a095ae8d653b646
+[DONE]
+
+Renounce role WITHDRAWALS_ENABLER_ROLE:
+  · role 0x9ab8816a3dc0b3849ec1ac00483f6ec815b07eee2fd766a353311c823ad59d0d
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x3524b9c1ac77e333348590c4dd970892094ddd1d0a1e79296aae2c70a87a9ff7
+[DONE]
+
+Grant role DEFAULT_ADMIN_ROLE:
+  · role 0x0000000000000000000000000000000000000000000000000000000000000000
+  · account 0xA74Eb604b0995409F7203BDc3Ae2c7a001873eEb
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0x00b812f41618ed043a040e8cb5ec64720e1cac34885d457ccd16520d17614ca1
+[DONE]
+
+Renounce role DEFAULT_ADMIN_ROLE:
+  · role 0x0000000000000000000000000000000000000000000000000000000000000000
+  · account 0xAf5B6AE540fCf3BD76f1b4C83fC87143932AAd09
+Waiting for tx: https://manta-sepolia.explorer.caldera.xyz/tx/0xee0920cbb5e2dcace27d6564988c60c2cbeb2bd81b21c460af711df47e183fb1
+[DONE]

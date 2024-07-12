@@ -150,6 +150,9 @@ function getBlockExplorerBaseUrlByChainId(chainId: number) {
     11155420: "https://blockscout.com/optimism/sepolia",
     // forked node
     31337: "https://etherscan.io",
+    // manta
+    3441006: "https://manta-sepolia.explorer.caldera.xyz",
+    169: 'https://pacific-rpc.manta.network/http',
   };
   return baseUrlByChainId[chainId];
 }

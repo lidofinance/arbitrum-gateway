@@ -7,7 +7,7 @@ const OptimismMainnetAddresses: OptContractAddresses = {
 };
 
 const OptimismSepoliaAddresses: OptContractAddresses = {
-  L1CrossDomainMessenger: "0x58Cc85b8D04EA49cC6DBd3CbFFd00B4B8D6cb3ef",
+  L1CrossDomainMessenger: "0xFe7cF31c4579bb1C578716e04E1Ae16Ac5549fF0", // manta testnet
   L2CrossDomainMessenger: "0x4200000000000000000000000000000000000007",
 };
 
