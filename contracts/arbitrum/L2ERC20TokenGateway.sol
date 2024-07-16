@@ -3,7 +3,7 @@
 
 pragma solidity 0.8.10;
 
-import {IERC20Bridged} from "../token/interfaces/IERC20Bridged.sol";
+import {IERC20Bridged} from "../token/ERC20Bridged.sol";
 import {IL2TokenGateway, IInterchainTokenGateway} from "./interfaces/IL2TokenGateway.sol";
 
 import {L2CrossDomainEnabled} from "./L2CrossDomainEnabled.sol";

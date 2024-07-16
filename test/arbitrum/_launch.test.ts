@@ -2,7 +2,7 @@ import { assert } from "chai";
 
 import env from "../../utils/env";
 import arbitrum from "../../utils/arbitrum";
-import { L1ERC20TokenBridge__factory } from "../../typechain";
+import { L1ERC20ExtendedTokensBridge__factory } from "../../typechain";
 import { wei } from "../../utils/wei";
 import testing, { scenario } from "../../utils/testing";
 import { BridgingManagerRole } from "../../utils/bridging-management";
@@ -71,7 +71,7 @@ async function ctx() {
     wei.toBigNumber(wei`1 ether`)
   );
 
-  const l1ERC20TokenGatewayImpl = L1ERC20TokenBridge__factory.connect(
+  const l1ERC20TokenGatewayImpl = L1ERC20ExtendedTokensBridge__factory.connect(
     l1ERC20TokenGateway.address,
     l1DevMultisig
   );

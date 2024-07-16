@@ -2,7 +2,7 @@ import { assert } from "chai";
 import { TransactionResponse } from "@ethersproject/providers";
 
 import {
-  L2ERC20TokenBridge__factory,
+  L2ERC20ExtendedTokensBridge__factory,
   GovBridgeExecutor__factory,
 } from "../../typechain";
 import {
@@ -33,27 +33,27 @@ const scenarioTest = scenario(
     assert.gte(await l1LDOHolder.getBalance(), gasAmount);
   })
 
-  .step("Checking deposits status", async ({ l2ERC20TokenBridge }) => {
-    l2DepositsInitialState = await l2ERC20TokenBridge.isDepositsEnabled();
+  .step("Checking deposits status", async ({ l2ERC20ExtendedTokensBridge }) => {
+    l2DepositsInitialState = await l2ERC20ExtendedTokensBridge.isDepositsEnabled();
   })
 
   .step(`Starting DAO vote`, async (ctx) => {
     const grantRoleCalldata =
-      ctx.l2ERC20TokenBridge.interface.encodeFunctionData("grantRole", [
+      ctx.l2ERC20ExtendedTokensBridge.interface.encodeFunctionData("grantRole", [
         l2DepositsInitialState ? DEPOSIT_DISABLER_ROLE : DEPOSIT_ENABLER_ROLE,
         ctx.govBridgeExecutor.address,
       ]);
     const grantRoleData = "0x" + grantRoleCalldata.substring(10);
 
     const actionCalldata = l2DepositsInitialState
-      ? ctx.l2ERC20TokenBridge.interface.encodeFunctionData("disableDeposits")
-      : ctx.l2ERC20TokenBridge.interface.encodeFunctionData("enableDeposits");
+      ? ctx.l2ERC20ExtendedTokensBridge.interface.encodeFunctionData("disableDeposits")
+      : ctx.l2ERC20ExtendedTokensBridge.interface.encodeFunctionData("enableDeposits");
 
     const actionData = "0x" + actionCalldata.substring(10);
 
     const executorCalldata =
       await ctx.govBridgeExecutor.interface.encodeFunctionData("queue", [
-        [ctx.l2ERC20TokenBridge.address, ctx.l2ERC20TokenBridge.address],
+        [ctx.l2ERC20ExtendedTokensBridge.address, ctx.l2ERC20ExtendedTokensBridge.address],
         [0, 0],
         [
           "grantRole(bytes32,address)",
@@ -124,9 +124,9 @@ const scenarioTest = scenario(
     await tx.wait();
   })
 
-  .step("Checking deposits state", async ({ l2ERC20TokenBridge }) => {
+  .step("Checking deposits state", async ({ l2ERC20ExtendedTokensBridge }) => {
     assert.equal(
-      await l2ERC20TokenBridge.isDepositsEnabled(),
+      await l2ERC20ExtendedTokensBridge.isDepositsEnabled(),
       !l2DepositsInitialState
     );
   });
@@ -158,8 +158,8 @@ async function ctxFactory() {
     l1Tester,
     l2Tester,
     l1LDOHolder,
-    l2ERC20TokenBridge: L2ERC20TokenBridge__factory.connect(
-      E2E_TEST_CONTRACTS.l2.l2ERC20TokenBridge,
+    l2ERC20ExtendedTokensBridge: L2ERC20ExtendedTokensBridge__factory.connect(
+      E2E_TEST_CONTRACTS.l2.l2ERC20ExtendedTokensBridge,
       l2Tester
     ),
     govBridgeExecutor: GovBridgeExecutor__factory.connect(

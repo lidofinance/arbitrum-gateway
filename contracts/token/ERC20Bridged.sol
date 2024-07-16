@@ -1,14 +1,30 @@
-// SPDX-FileCopyrightText: 2022 Lido <info@lido.fi>
+// SPDX-FileCopyrightText: 2024 Lido <info@lido.fi>
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity 0.8.10;
 
-import {IERC20Bridged} from "./interfaces/IERC20Bridged.sol";
-
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {ERC20Core} from "./ERC20Core.sol";
 import {ERC20Metadata} from "./ERC20Metadata.sol";
 
-/// @author psirex
+/// @author psirex, kovalgek
+/// @notice Extends the ERC20 functionality that allows the bridge to mint/burn tokens
+interface IERC20Bridged is IERC20 {
+    /// @notice Returns bridge which can mint and burn tokens on L2
+    function bridge() external view returns (address);
+
+    /// @notice Creates amount_ tokens and assigns them to account_, increasing the total supply
+    /// @param account_ An address of the account to mint tokens
+    /// @param amount_ An amount of tokens to mint
+    function bridgeMint(address account_, uint256 amount_) external;
+
+    /// @notice Destroys amount_ tokens from account_, reducing the total supply
+    /// @param account_ An address of the account to burn tokens
+    /// @param amount_ An amount of tokens to burn
+    function bridgeBurn(address account_, uint256 amount_) external;
+}
+
+/// @author psirex, kovalgek
 /// @notice Extends the ERC20 functionality that allows the bridge to mint/burn tokens
 contract ERC20Bridged is IERC20Bridged, ERC20Core, ERC20Metadata {
     /// @inheritdoc IERC20Bridged

@@ -1,11 +1,12 @@
-// SPDX-FileCopyrightText: 2022 Lido <info@lido.fi>
+// SPDX-FileCopyrightText: 2024 Lido <info@lido.fi>
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity 0.8.10;
 
-import {IERC20Bridged} from "../token/interfaces/IERC20Bridged.sol";
+import {IERC20Bridged} from "../token/ERC20Bridged.sol";
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
+/// @dev For testing purposes.
 contract ERC20BridgedStub is IERC20Bridged, ERC20 {
     address public bridge;
 

@@ -57,6 +57,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-promise": "^5.2.0",
     "ethereum-waffle": "^3.4.4",
+    "ethereumjs-util": "^7.0.8",
     "ethers": "^5.6.2",
     "hardhat": "^2.12.2",
     "hardhat-gas-reporter": "^1.0.8",
@@ -70,10 +71,11 @@
   },
   "dependencies": {
     "@arbitrum/sdk": "3.1.6",
-    "@eth-optimism/sdk": "3.2.0",
+    "@eth-optimism/sdk": "3.2.3",
     "@ethersproject/providers": "^5.6.8",
     "@lidofinance/evm-script-decoder": "^0.2.2",
     "@openzeppelin/contracts": "4.6.0",
+    "@openzeppelin/contracts-v4.9": "npm:@openzeppelin/contracts@4.9.6",
     "chalk": "4.1.2"
   }
 }

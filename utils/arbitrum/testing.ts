@@ -206,15 +206,15 @@ async function deployTestGateway(
   await ethDeployScript.run();
   await arbDeployScript.run();
 
-  const l1ERC20TokenBridgeProxyDeployStepIndex = 1;
+  const l1ERC20ExtendedTokensBridgeProxyDeployStepIndex = 1;
   const l1BridgingManagement = new BridgingManagement(
-    ethDeployScript.getContractAddress(l1ERC20TokenBridgeProxyDeployStepIndex),
+    ethDeployScript.getContractAddress(l1ERC20ExtendedTokensBridgeProxyDeployStepIndex),
     ethDeployer
   );
 
-  const l2ERC20TokenBridgeProxyDeployStepIndex = 3;
+  const l2ERC20ExtendedTokensBridgeProxyDeployStepIndex = 3;
   const l2BridgingManagement = new BridgingManagement(
-    arbDeployScript.getContractAddress(l2ERC20TokenBridgeProxyDeployStepIndex),
+    arbDeployScript.getContractAddress(l2ERC20ExtendedTokensBridgeProxyDeployStepIndex),
     arbDeployer
   );
 

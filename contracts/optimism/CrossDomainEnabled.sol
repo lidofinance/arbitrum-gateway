@@ -8,11 +8,11 @@ import {ICrossDomainMessenger} from "./interfaces/ICrossDomainMessenger.sol";
 /// @dev Helper contract for contracts performing cross-domain communications
 contract CrossDomainEnabled {
     /// @notice Messenger contract used to send and receive messages from the other domain
-    ICrossDomainMessenger public immutable messenger;
+    ICrossDomainMessenger public immutable MESSENGER;
 
     /// @param messenger_ Address of the CrossDomainMessenger on the current layer
     constructor(address messenger_) {
-        messenger = ICrossDomainMessenger(messenger_);
+        MESSENGER = ICrossDomainMessenger(messenger_);
     }
 
     /// @dev Sends a message to an account on another domain
@@ -25,17 +25,17 @@ contract CrossDomainEnabled {
         uint32 gasLimit_,
         bytes memory message_
     ) internal {
-        messenger.sendMessage(crossDomainTarget_, message_, gasLimit_);
+        MESSENGER.sendMessage(crossDomainTarget_, message_, gasLimit_);
     }
 
     /// @dev Enforces that the modified function is only callable by a specific cross-domain account
     /// @param sourceDomainAccount_ The only account on the originating domain which is
     ///     authenticated to call this function
     modifier onlyFromCrossDomainAccount(address sourceDomainAccount_) {
-        if (msg.sender != address(messenger)) {
+        if (msg.sender != address(MESSENGER)) {
             revert ErrorUnauthorizedMessenger();
         }
-        if (messenger.xDomainMessageSender() != sourceDomainAccount_) {
+        if (MESSENGER.xDomainMessageSender() != sourceDomainAccount_) {
             revert ErrorWrongCrossDomainSender();
         }
         _;

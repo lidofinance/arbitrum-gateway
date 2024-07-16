@@ -58,12 +58,12 @@
 |------|------|------|--------|-------|----------|
 
 =======================
-➡ L1ERC20TokenBridge
+➡ L1ERC20ExtendedTokensBridge
 =======================
 
 | Name   | Type                                              | Slot | Offset | Bytes | Contract                                                     |
 |--------|---------------------------------------------------|------|--------|-------|--------------------------------------------------------------|
-| _roles | mapping(bytes32 => struct AccessControl.RoleData) | 0    | 0      | 32    | contracts/optimism/L1ERC20TokenBridge.sol:L1ERC20TokenBridge |
+| _roles | mapping(bytes32 => struct AccessControl.RoleData) | 0    | 0      | 32    | contracts/optimism/L1ERC20ExtendedTokensBridge.sol:L1ERC20ExtendedTokensBridge |
 
 =======================
 ➡ L1ERC20TokenGateway
@@ -81,12 +81,12 @@
 |------|------|------|--------|-------|----------|
 
 =======================
-➡ L2ERC20TokenBridge
+➡ L2ERC20ExtendedTokensBridge
 =======================
 
 | Name   | Type                                              | Slot | Offset | Bytes | Contract                                                     |
 |--------|---------------------------------------------------|------|--------|-------|--------------------------------------------------------------|
-| _roles | mapping(bytes32 => struct AccessControl.RoleData) | 0    | 0      | 32    | contracts/optimism/L2ERC20TokenBridge.sol:L2ERC20TokenBridge |
+| _roles | mapping(bytes32 => struct AccessControl.RoleData) | 0    | 0      | 32    | contracts/optimism/L2ERC20ExtendedTokensBridge.sol:L2ERC20ExtendedTokensBridge |
 
 =======================
 ➡ L2ERC20TokenGateway

@@ -44,38 +44,6 @@ contract ERC20Core is IERC20 {
         return true;
     }
 
-    /// @notice Atomically increases the allowance granted to spender by the caller.
-    /// @param spender_ An address of the tokens spender
-    /// @param addedValue_ An amount to increase the allowance
-    function increaseAllowance(address spender_, uint256 addedValue_)
-        external
-        returns (bool)
-    {
-        _approve(
-            msg.sender,
-            spender_,
-            allowance[msg.sender][spender_] + addedValue_
-        );
-        return true;
-    }
-
-    /// @notice Atomically decreases the allowance granted to spender by the caller.
-    /// @param spender_ An address of the tokens spender
-    /// @param subtractedValue_ An amount to decrease the  allowance
-    function decreaseAllowance(address spender_, uint256 subtractedValue_)
-        external
-        returns (bool)
-    {
-        uint256 currentAllowance = allowance[msg.sender][spender_];
-        if (currentAllowance < subtractedValue_) {
-            revert ErrorDecreasedAllowanceBelowZero();
-        }
-        unchecked {
-            _approve(msg.sender, spender_, currentAllowance - subtractedValue_);
-        }
-        return true;
-    }
-
     /// @dev Moves amount_ of tokens from sender_ to recipient_
     /// @param from_ An address of the sender of the tokens
     /// @param to_  An address of the recipient of the tokens

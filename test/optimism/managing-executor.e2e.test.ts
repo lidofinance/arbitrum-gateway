@@ -2,7 +2,7 @@ import { assert } from "chai";
 import { TransactionResponse } from "@ethersproject/providers";
 
 import {
-  L2ERC20TokenBridge__factory,
+  L2ERC20ExtendedTokensBridge__factory,
   GovBridgeExecutor__factory,
 } from "../../typechain";
 import {
@@ -134,8 +134,8 @@ async function ctxFactory() {
     gasAmount: wei`0.1 ether`,
     l2Tester,
     l1LDOHolder,
-    l2ERC20TokenBridge: L2ERC20TokenBridge__factory.connect(
-      E2E_TEST_CONTRACTS.l2.l2ERC20TokenBridge,
+    l2ERC20ExtendedTokensBridge: L2ERC20ExtendedTokensBridge__factory.connect(
+      E2E_TEST_CONTRACTS.l2.l2ERC20ExtendedTokensBridge,
       l2Tester
     ),
     govBridgeExecutor: GovBridgeExecutor__factory.connect(

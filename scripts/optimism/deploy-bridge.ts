@@ -24,13 +24,16 @@ async function main() {
   const [l1DeployScript, l2DeployScript] = await optimism
     .deployment(networkName, { logger: console })
     .erc20TokenBridgeDeployScript(
-      deploymentConfig.token,
+      deploymentConfig.l1Token,
+      deploymentConfig.l1RebasableToken,
+      deploymentConfig.l2TokenRateOracle,
       {
         deployer: ethDeployer,
         admins: {
           proxy: deploymentConfig.l1.proxyAdmin,
-          bridge: ethDeployer.address,
+          bridge: ethDeployer.address
         },
+        contractsShift: 0
       },
       {
         deployer: optDeployer,
@@ -38,6 +41,7 @@ async function main() {
           proxy: deploymentConfig.l2.proxyAdmin,
           bridge: optDeployer.address,
         },
+        contractsShift: 0
       }
     );
 
@@ -55,22 +59,22 @@ async function main() {
   await l1DeployScript.run();
   await l2DeployScript.run();
 
-  const l1ERC20TokenBridgeProxyDeployStepIndex = 1;
+  const l1ERC20ExtendedTokensBridgeProxyDeployStepIndex = 1;
   const l1BridgingManagement = new BridgingManagement(
-    l1DeployScript.getContractAddress(l1ERC20TokenBridgeProxyDeployStepIndex),
+    l1DeployScript.getContractAddress(l1ERC20ExtendedTokensBridgeProxyDeployStepIndex),
     ethDeployer,
     { logger: console }
   );
 
-  const l2ERC20TokenBridgeProxyDeployStepIndex = 3;
+  const l2ERC20ExtendedTokensBridgeProxyDeployStepIndex = 5;
   const l2BridgingManagement = new BridgingManagement(
-    l2DeployScript.getContractAddress(l2ERC20TokenBridgeProxyDeployStepIndex),
+    l2DeployScript.getContractAddress(l2ERC20ExtendedTokensBridgeProxyDeployStepIndex),
     optDeployer,
     { logger: console }
   );
 
-  await l1BridgingManagement.setup(deploymentConfig.l1);
-  await l2BridgingManagement.setup(deploymentConfig.l2);
+   await l1BridgingManagement.setup(deploymentConfig.l1);
+   await l2BridgingManagement.setup(deploymentConfig.l2);
 }
 
 main().catch((error) => {

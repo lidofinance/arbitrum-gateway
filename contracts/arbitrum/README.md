@@ -707,7 +707,6 @@ Transfers `amount` of token from the `from_` account to `to_` using the allowanc
 > - **`addedValue_`** - a number to increase allowance
 >
 > **Emits:** `Approval(address indexed owner, address indexed spender, uint256 value)`
-
 Atomically increases the allowance granted to `spender` by the caller. Returns a `bool` value indicating whether the operation succeed.
 
 #### `decreaseAllowance(address,uint256)`
@@ -722,7 +721,6 @@ Atomically increases the allowance granted to `spender` by the caller. Returns a
 > - **`subtractedValue_`** - a number to decrease allowance
 >
 > **Emits:** `Approval(address indexed owner, address indexed spender, uint256 value)`
-
 Atomically decreases the allowance granted to `spender` by the caller. Returns a `bool` value indicating whether the operation succeed.
 
 ## `ERC20Bridged`

@@ -2,13 +2,13 @@
   {
     "artifactPath": "artifacts/contracts/proxy/OssifiableProxy.sol/OssifiableProxy.json",
     "sourcePath": "contracts/proxy/OssifiableProxy.sol",
-    "name": "L2ERC20TokenBridge proxy",
+    "name": "L2ERC20ExtendedTokensBridge proxy",
     "address": "0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957"
   },
   {
-    "artifactPath": "artifacts/contracts/optimism/L2ERC20TokenBridge.sol/L2ERC20TokenBridge.json",
-    "sourcePath": "contracts/optimism/L2ERC20TokenBridge.sol",
-    "name": "L2ERC20TokenBridge",
+    "artifactPath": "artifacts/contracts/optimism/L2ERC20ExtendedTokensBridge.sol/L2ERC20ExtendedTokensBridge.json",
+    "sourcePath": "contracts/optimism/L2ERC20ExtendedTokensBridge.sol",
+    "name": "L2ERC20ExtendedTokensBridge",
     "address": "0x23B96aDD54c479C6784Dd504670B5376B808f4C7",
     "txHash": "0x5d69e9c6ec1d634f0d90812c2189c925993d1fffbc9b0b416fdc123e15407c56"
   },

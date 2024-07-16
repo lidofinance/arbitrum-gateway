@@ -1,6 +1,5 @@
 import {
   CrossChainMessenger,
-  DAIBridgeAdapter,
   MessageStatus,
 } from "@eth-optimism/sdk";
 import { assert } from "chai";
@@ -13,6 +12,7 @@ import optimism from "../../utils/optimism";
 import { ERC20Mintable } from "../../typechain";
 import { scenario } from "../../utils/testing";
 import { sleep } from "../../utils/testing/e2e";
+import { LidoBridgeAdapter } from "../../utils/optimism/LidoBridgeAdapter";
 
 let depositTokensTxResponse: TransactionResponse;
 let withdrawTokensTxResponse: TransactionResponse;
@@ -38,7 +38,7 @@ scenario("Optimism :: Bridging via deposit/withdraw E2E test", ctxFactory)
     }
   )
 
-  .step("Set allowance for L1ERC20TokenBridge to deposit", async (ctx) => {
+  .step("Set allowance for L1LidoTokensBridge to deposit", async (ctx) => {
     const allowanceTxResponse = await ctx.crossChainMessenger.approveERC20(
       ctx.l1Token.address,
       ctx.l2Token.address,
@@ -50,7 +50,7 @@ scenario("Optimism :: Bridging via deposit/withdraw E2E test", ctxFactory)
     assert.equalBN(
       await ctx.l1Token.allowance(
         ctx.l1Tester.address,
-        ctx.l1ERC20TokenBridge.address
+        ctx.l1LidoTokensBridge.address
       ),
       ctx.depositAmount
     );
@@ -134,7 +134,7 @@ async function ctxFactory() {
     l1Tester: testingSetup.l1Tester,
     l1Token: testingSetup.l1Token,
     l2Token: testingSetup.l2Token,
-    l1ERC20TokenBridge: testingSetup.l1ERC20TokenBridge,
+    l1LidoTokensBridge: testingSetup.l1LidoTokensBridge,
     crossChainMessenger: new CrossChainMessenger({
       l2ChainId: network.chainId("opt", networkName),
       l1ChainId: network.chainId("eth", networkName),
@@ -142,9 +142,9 @@ async function ctxFactory() {
       l2SignerOrProvider: testingSetup.l2Tester,
       bridges: {
         LidoBridge: {
-          Adapter: DAIBridgeAdapter,
-          l1Bridge: testingSetup.l1ERC20TokenBridge.address,
-          l2Bridge: testingSetup.l2ERC20TokenBridge.address,
+          Adapter: LidoBridgeAdapter,
+          l1Bridge: testingSetup.l1LidoTokensBridge.address,
+          l2Bridge: testingSetup.l2ERC20ExtendedTokensBridge.address,
         },
       },
     }),

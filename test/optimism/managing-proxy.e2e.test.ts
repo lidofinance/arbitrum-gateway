@@ -5,7 +5,7 @@ import {
   ERC20Bridged__factory,
   GovBridgeExecutor__factory,
   OssifiableProxy__factory,
-  L2ERC20TokenBridge__factory,
+  L2ERC20ExtendedTokensBridge__factory,
 } from "../../typechain";
 import { E2E_TEST_CONTRACTS_OPTIMISM as E2E_TEST_CONTRACTS } from "../../utils/testing/e2e";
 import env from "../../utils/env";
@@ -32,7 +32,7 @@ scenario(
   .step("Proxy upgrade: send crosschain message", async (ctx) => {
     const implBefore = await await ctx.proxyToOssify.proxy__getImplementation();
 
-    assert.equal(implBefore, ctx.l2ERC20TokenBridge.address);
+    assert.equal(implBefore, ctx.l2ERC20ExtendedTokensBridge.address);
     const executorCalldata =
       await ctx.govBridgeExecutor.interface.encodeFunctionData("queue", [
         [ctx.proxyToOssify.address],
@@ -204,8 +204,8 @@ async function ctxFactory() {
       E2E_TEST_CONTRACTS.l2.l2Token,
       l2Tester
     ),
-    l2ERC20TokenBridge: L2ERC20TokenBridge__factory.connect(
-      E2E_TEST_CONTRACTS.l2.l2ERC20TokenBridge,
+    l2ERC20ExtendedTokensBridge: L2ERC20ExtendedTokensBridge__factory.connect(
+      E2E_TEST_CONTRACTS.l2.l2ERC20ExtendedTokensBridge,
       l2Tester
     ),
     govBridgeExecutor: GovBridgeExecutor__factory.connect(
@@ -213,7 +213,7 @@ async function ctxFactory() {
       l2Tester
     ),
     proxyToOssify: await new OssifiableProxy__factory(l2Tester).deploy(
-      E2E_TEST_CONTRACTS.l2.l2ERC20TokenBridge,
+      E2E_TEST_CONTRACTS.l2.l2ERC20ExtendedTokensBridge,
       E2E_TEST_CONTRACTS.l2.govBridgeExecutor,
       "0x"
     ),

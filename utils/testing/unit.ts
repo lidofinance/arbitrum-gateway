@@ -5,7 +5,7 @@ export function unit<T extends object>(title: string, ctxFactory: CtxFactory<T>)
   return new UnitTest(title, ctxFactory);
 }
 
-class UnitTest<T extends object> {
+export class UnitTest<T extends object> {
   public readonly title: string;
 
   private readonly ctxFactory: CtxFactory<T>;

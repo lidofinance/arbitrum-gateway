@@ -5,6 +5,7 @@ pragma solidity 0.8.10;
 
 import {ICrossDomainMessenger} from "../interfaces/ICrossDomainMessenger.sol";
 
+/// @dev For testing purposes.
 contract CrossDomainMessengerStub is ICrossDomainMessenger {
     address public xDomainMessageSender;
     uint256 public messageNonce;
